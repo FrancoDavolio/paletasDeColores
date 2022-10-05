@@ -1,8 +1,13 @@
 import React from "react";
 import { Button, Form } from "react-bootstrap";
 import Item from "./Item";
+import { useState } from "react";
 
 const formulario = () => {
+  const [color, setColor] = useState("");
+  const [arregloColores, setArregloColores] = useState("");
+  
+
   return (
     <div>
       <h1 className="text-center my-5">Administrar Colores:</h1>
@@ -13,10 +18,16 @@ const formulario = () => {
             <Form.Label htmlFor="disabledTextInput">
               Ingresar un color:
             </Form.Label>
-            <Form.Control type="color" />
+            <Form.Control
+              type="color"
+              onChange={(e) => setColor(e, target.value)}
+              value={color}
+            />
           </Form.Group>
         </div>
-        <Button className="my-4 col-12" variant="outline-primary" type="submit">Guardar</Button>
+        <Button className="my-4 col-12" variant="outline-primary" type="submit">
+          Guardar
+        </Button>
       </Form>
       <Item></Item>
     </div>
